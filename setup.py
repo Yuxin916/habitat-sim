@@ -474,8 +474,11 @@ if __name__ == "__main__":
         and "sdist" not in sys.argv
         and os.path.exists(pymagnum_build_dir)
     ):
+        # subprocess.check_call(
+        #     [sys.executable, "-m", "pip", "install", pymagnum_build_dir]
+        # )
         subprocess.check_call(
-            [sys.executable, "-m", "pip", "install", pymagnum_build_dir]
+            [sys.executable, "-m", "pip", "install", "--break-system-packages", pymagnum_build_dir]
         )
     else:
         if not os.path.exists(pymagnum_build_dir) and "sdist" not in sys.argv:

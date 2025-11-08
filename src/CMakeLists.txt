@@ -4,6 +4,14 @@
 
 cmake_minimum_required(VERSION 3.12)
 
+# Let CMake discover nvcc (should be /usr/bin/nvcc -> CUDA 12.0)
+# or force it to the system one explicitly:
+set(CMAKE_CUDA_COMPILER "/usr/bin/nvcc")
+
+# Keep only modern archs that CUDA 12.0 supports
+set(CMAKE_CUDA_ARCHITECTURES 75 86)
+
+
 option(BUILD_WITH_CUDA "Build Habitat-Sim with CUDA features enabled -- Requires CUDA"
        OFF
 )
